@@ -1,0 +1,36 @@
+{
+  "name": "posthtml-extra-attributes",
+  "description": "PostHTML plugin starter kit.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Cosmin Popovici (https://github.com/cossssmin)",
+  "bugs": "https://github.com/posthtml/posthtml-extra-attributes/issues",
+  "homepage": "https://github.com/posthtml/posthtml-extra-attributes",
+  "repository": "posthtml/posthtml-extra-attributes",
+  "main": "lib",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "test": "nyc ava",
+    "pretest": "xo",
+    "release": "np"
+  },
+  "keywords": [
+    "attributes",
+    "html",
+    "posthtml",
+    "posthtml-plugin"
+  ],
+  "devDependencies": {
+    "ava": "^3.8.2",
+    "np": "^6.2.3",
+    "nyc": "^15.0.1",
+    "posthtml": "^0.13.0",
+    "xo": "^0.30.0"
+  },
+  "dependencies": {
+    "lodash.omit": "^4.5.0",
+    "posthtml-match-helper": "^1.0.1"
+  }
+}
