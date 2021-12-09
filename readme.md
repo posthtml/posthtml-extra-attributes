@@ -26,24 +26,29 @@ $ npm i posthtml posthtml-extra-attributes
 ## Usage
 
 ```js
-const posthtml = require('posthtml')
-const addAttributes = require('posthtml-extra-attributes')
+import posthtml from 'posthtml'
+import extraAttributes from 'posthtml-extra-attributes'
 
 posthtml([
-    addAttributes({
-      attributes: {
-        div: {
-          class: 'new',
-          id: 'new'
-        }
+  extraAttributes({
+    attributes: {
+      div: {
+        class: 'new',
+        id: 'new'
       }
-    })
-  ])
+    }
+  })
+])
   .process('<div class="test">Test</div>')
   .then(result => console.log(result.html))
-
-  // <div class="test new" id="new">Test</div>
 ```
+
+Result:
+
+```html
+<div class="test new" id="new">Test</div>
+```
+
 
 ## Options
 
@@ -142,19 +147,23 @@ Set this option to `true` to enable attribute value overwriting:
 
 ```js
 posthtml([
-    addAttributes({
-      attributes: {
-        div: {
-          id: 'new'
-        }
-      },
-      overwrite: true
-    })
-  ])
+  extraAttributes({
+    attributes: {
+      div: {
+        id: 'new'
+      }
+    },
+    overwrite: true
+  })
+])
   .process('<div id="test">Test</div>')
   .then(result => console.log(result.html))
+```
 
-  // <div id="new">Test</div>
+Result:
+
+```html
+<div id="new">Test</div>
 ```
 
 [npm]: https://www.npmjs.com/package/posthtml-extra-attributes

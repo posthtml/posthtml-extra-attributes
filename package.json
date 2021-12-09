@@ -7,12 +7,13 @@
   "bugs": "https://github.com/posthtml/posthtml-extra-attributes/issues",
   "homepage": "https://github.com/posthtml/posthtml-extra-attributes",
   "repository": "posthtml/posthtml-extra-attributes",
-  "main": "lib",
+  "type": "module",
+  "exports": "./lib/index.js",
   "engines": {
-    "node": ">=10"
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "scripts": {
-    "test": "nyc ava",
+    "test": "c8 ava",
     "pretest": "xo",
     "release": "np"
   },
@@ -24,10 +25,10 @@
   ],
   "devDependencies": {
     "ava": "^3.15.0",
-    "np": "^7.4.0",
-    "nyc": "^15.1.0",
-    "posthtml": "^0.16.4",
-    "xo": "^0.39.1"
+    "c8": "^7.10.0",
+    "np": "^7.6.0",
+    "posthtml": "^0.16.5",
+    "xo": "^0.47.0"
   },
   "dependencies": {
     "lodash.omit": "^4.5.0",

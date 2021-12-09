@@ -1,9 +1,11 @@
-const test = require('ava')
-const posthtml = require('posthtml')
-const plugin = require('../lib/index.js')
+import path from 'node:path'
+import {readFileSync} from 'node:fs'
+import {fileURLToPath} from 'node:url'
+import test from 'ava'
+import posthtml from 'posthtml'
+import plugin from '../lib/index.js'
 
-const path = require('path')
-const {readFileSync} = require('fs')
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const fixture = file => readFileSync(path.join(__dirname, 'fixtures', `${file}.html`), 'utf8')
 const expected = file => readFileSync(path.join(__dirname, 'expected', `${file}.html`), 'utf8')
@@ -27,6 +29,7 @@ test('does not overwrite existing attributes by default', t => {
       id: 'new'
     }
   }
+
   return process(t, 'no-overwrite', {attributes})
 })
 
@@ -36,6 +39,7 @@ test('overwrites existing attributes when option is enabled', t => {
       id: 'new'
     }
   }
+
   return process(t, 'overwrite', {attributes, overwrite: true})
 })
 
@@ -45,6 +49,7 @@ test('appends new classes', t => {
       class: 'new'
     }
   }
+
   return process(t, 'append-classes', {attributes})
 })
 
