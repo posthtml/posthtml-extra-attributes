@@ -1,8 +1,8 @@
-import test from 'ava'
-import posthtml from 'posthtml'
-import {fileURLToPath} from 'node:url'
 import path from 'node:path'
 import {readFileSync} from 'node:fs'
+import {fileURLToPath} from 'node:url'
+import test from 'ava'
+import posthtml from 'posthtml'
 import plugin from '../lib/index.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
