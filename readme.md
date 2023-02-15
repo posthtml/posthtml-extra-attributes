@@ -4,8 +4,8 @@
   <p>Add new attributes to elements in your HTML</p>
 
   [![Version][npm-version-shield]][npm]
-  [![License][license-shield]][license]
   [![Build][github-ci-shield]][github-ci]
+  [![License][license-shield]][license]
   [![Downloads][npm-stats-shield]][npm-stats]
 </div>
 
@@ -162,6 +162,6 @@ posthtml([
 [npm-stats]: http://npm-stat.com/charts.html?package=posthtml-extra-attributes
 [npm-stats-shield]: https://img.shields.io/npm/dt/posthtml-extra-attributes.svg
 [github-ci]: https://github.com/posthtml/posthtml-extra-attributes/actions
-[github-ci-shield]: https://img.shields.io/github/workflow/status/posthtml/posthtml-extra-attributes/Node.js%20CI
+[github-ci-shield]: https://github.com/posthtml/posthtml-extra-attributes/actions/workflows/nodejs.yml/badge.svg
 [license]: ./license
 [license-shield]: https://img.shields.io/npm/l/posthtml-extra-attributes.svg
