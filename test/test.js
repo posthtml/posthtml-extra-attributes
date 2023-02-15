@@ -1,9 +1,8 @@
+const path = require('path')
+const {readFileSync} = require('fs')
 const test = require('ava')
 const posthtml = require('posthtml')
 const plugin = require('../lib/index.js')
-
-const path = require('path')
-const {readFileSync} = require('fs')
 
 const fixture = file => readFileSync(path.join(__dirname, 'fixtures', `${file}.html`), 'utf8')
 const expected = file => readFileSync(path.join(__dirname, 'expected', `${file}.html`), 'utf8')
@@ -24,8 +23,8 @@ test('does nothing if no attributes passed', t => {
 test('does not overwrite existing attributes by default', t => {
   const attributes = {
     div: {
-      id: 'new'
-    }
+      id: 'new',
+    },
   }
   return process(t, 'no-overwrite', {attributes})
 })
@@ -33,8 +32,8 @@ test('does not overwrite existing attributes by default', t => {
 test('overwrites existing attributes when option is enabled', t => {
   const attributes = {
     div: {
-      id: 'new'
-    }
+      id: 'new',
+    },
   }
   return process(t, 'overwrite', {attributes, overwrite: true})
 })
@@ -42,8 +41,8 @@ test('overwrites existing attributes when option is enabled', t => {
 test('appends new classes', t => {
   const attributes = {
     div: {
-      class: 'new'
-    }
+      class: 'new',
+    },
   }
   return process(t, 'append-classes', {attributes})
 })
@@ -51,8 +50,8 @@ test('appends new classes', t => {
 test('tag selectors', t => {
   const attributes = {
     div: {
-      id: 'add'
-    }
+      id: 'add',
+    },
   }
 
   return process(t, 'tag', {attributes})
@@ -61,8 +60,8 @@ test('tag selectors', t => {
 test('class selectors', t => {
   const attributes = {
     '.test': {
-      id: 'add'
-    }
+      id: 'add',
+    },
   }
 
   return process(t, 'class', {attributes})
@@ -71,8 +70,8 @@ test('class selectors', t => {
 test('id selectors', t => {
   const attributes = {
     '#test': {
-      class: 'test'
-    }
+      class: 'test',
+    },
   }
 
   return process(t, 'id', {attributes})
@@ -81,8 +80,8 @@ test('id selectors', t => {
 test('attribute selectors', t => {
   const attributes = {
     '[role]': {
-      'aria-roledescription': 'slide'
-    }
+      'aria-roledescription': 'slide',
+    },
   }
 
   return process(t, 'attribute', {attributes})
@@ -91,11 +90,11 @@ test('attribute selectors', t => {
 test('nested', t => {
   const attributes = {
     div: {
-      class: 'parent'
+      class: 'parent',
     },
     span: {
-      class: 'child'
-    }
+      class: 'child',
+    },
   }
 
   return process(t, 'nested', {attributes})
@@ -105,8 +104,8 @@ test('multiple selectors', t => {
   const attributes = {
     'div, p': {
       class: 'test',
-      role: 'section'
-    }
+      role: 'section',
+    },
   }
 
   return process(t, 'multiple', {attributes})
