@@ -20,36 +20,36 @@ This PostHTML plugin can add extra attributes to elements in your HTML:
 ## Installation
 
 ```
-$ npm i posthtml posthtml-extra-attributes
+npm i posthtml posthtml-extra-attributes
 ```
 
 ## Usage
 
 ```js
-const posthtml = require('posthtml')
-const addAttributes = require('posthtml-extra-attributes')
+import posthtml from 'posthtml'
+import addAttributes from 'posthtml-extra-attributes'
 
 posthtml([
-    addAttributes({
-      attributes: {
-        div: {
-          class: 'new',
-          id: 'new'
-        }
+  addAttributes({
+    attributes: {
+      div: {
+        class: 'new',
+        id: 'new'
       }
-    })
-  ])
+    }
+  })
+])
   .process('<div class="test">Test</div>')
   .then(result => console.log(result.html))
 
-  // <div class="test new" id="new">Test</div>
+// <div class="test new" id="new">Test</div>
 ```
 
 ## Options
 
 ### `attributes`
 
-Type: `object`\
+Type: `Object`\
 Default: `{}`
 
 An object defining which elements should get what attributes.
@@ -133,7 +133,7 @@ const attributes = {
 
 ### `overwrite`
 
-Type: `boolean`\
+Type: `Boolean`\
 Default: `false`
 
 By default, the plugin will not overwrite existing attribute values.
@@ -142,19 +142,19 @@ Set this option to `true` to enable attribute value overwriting:
 
 ```js
 posthtml([
-    addAttributes({
-      attributes: {
-        div: {
-          id: 'new'
-        }
-      },
-      overwrite: true
-    })
-  ])
+  addAttributes({
+    attributes: {
+      div: {
+        id: 'new'
+      }
+    },
+    overwrite: true
+  })
+])
   .process('<div id="test">Test</div>')
   .then(result => console.log(result.html))
 
-  // <div id="new">Test</div>
+// <div id="new">Test</div>
 ```
 
 [npm]: https://www.npmjs.com/package/posthtml-extra-attributes
@@ -163,5 +163,5 @@ posthtml([
 [npm-stats-shield]: https://img.shields.io/npm/dt/posthtml-extra-attributes.svg
 [github-ci]: https://github.com/posthtml/posthtml-extra-attributes/actions
 [github-ci-shield]: https://github.com/posthtml/posthtml-extra-attributes/actions/workflows/nodejs.yml/badge.svg
-[license]: ./license
+[license]: ./LICENSE
 [license-shield]: https://img.shields.io/npm/l/posthtml-extra-attributes.svg
