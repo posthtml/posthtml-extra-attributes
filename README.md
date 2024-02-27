@@ -11,11 +11,13 @@
 
 ## Introduction
 
-This PostHTML plugin can add extra attributes to elements in your HTML:
+This PostHTML plugin can add extra attributes to elements in your HTML.
 
-- does not overwrite existing attributes (configurable)
-- appends class names to existing ones
+Features:
+
 - supports a variety of CSS-like selectors
+- appends class names to existing ones
+- does not overwrite existing attributes
 
 ## Installation
 
