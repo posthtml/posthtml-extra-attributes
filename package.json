@@ -43,7 +43,7 @@
     "@vitest/coverage-v8": "^2.0.2",
     "posthtml": "^0.16.4",
     "unbuild": "^2.0.0",
-    "vitest": "^2.0.2"
+    "vitest": "^3.0.4"
   },
   "dependencies": {
     "lodash.omit": "^4.5.0",
