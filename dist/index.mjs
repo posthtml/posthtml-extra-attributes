@@ -1,4 +1,3 @@
-import omit from 'lodash.omit';
 import matchHelper from 'posthtml-match-helper';
 
 const plugin = (options = {}) => (tree) => {
@@ -13,7 +12,9 @@ const plugin = (options = {}) => (tree) => {
           if (k === "class" && node2.attrs && node2.attrs.class) {
             node2.attrs.class = [.../* @__PURE__ */ new Set([...node2.attrs.class.split(" "), ...v.split(" ")])].join(" ");
           } else {
-            const attributes2 = options.overwrite ? options.attributes[key] : omit(options.attributes[key], Object.keys(node2.attrs || {}));
+            const attributesToOmit = Object.keys(node2.attrs || {});
+            const { [attributesToOmit]: _, ...remainingAttributes } = options.attributes[key];
+            const attributes2 = options.overwrite ? options.attributes[key] : remainingAttributes;
             node2.attrs = { ...node2.attrs, ...attributes2 };
           }
         }
