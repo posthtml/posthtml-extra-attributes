@@ -12,8 +12,14 @@ const plugin = (options = {}) => (tree) => {
           if (k === "class" && node2.attrs && node2.attrs.class) {
             node2.attrs.class = [.../* @__PURE__ */ new Set([...node2.attrs.class.split(" "), ...v.split(" ")])].join(" ");
           } else {
-            const attributesToOmit = Object.keys(node2.attrs || {});
-            const { [attributesToOmit]: _, ...remainingAttributes } = options.attributes[key];
+            const existingAttributes = node2.attrs || {};
+            const remainingAttributes = Object.fromEntries(
+              Object.entries(
+                options.attributes[key]
+              ).filter(
+                ([attrKey]) => !(attrKey in existingAttributes)
+              )
+            );
             const attributes2 = options.overwrite ? options.attributes[key] : remainingAttributes;
             node2.attrs = { ...node2.attrs, ...attributes2 };
           }
