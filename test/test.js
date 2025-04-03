@@ -28,6 +28,9 @@ test('does not overwrite existing attributes by default', t => {
     div: {
       id: 'new',
     },
+    img: {
+      alt: true,
+    },
   }
   return process(t, 'no-overwrite', {attributes})
 })
