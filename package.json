@@ -39,7 +39,7 @@
     "posthtml-plugin"
   ],
   "devDependencies": {
-    "@biomejs/biome": "2.2.0",
+    "@biomejs/biome": "2.2.2",
     "@vitest/coverage-v8": "^3.0.5",
     "posthtml": "^0.16.4",
     "unbuild": "^2.0.0",
